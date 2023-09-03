@@ -216,18 +216,28 @@
     
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
+                    // Remove all header rows except the first one
+                    let headerRows = document.querySelectorAll("table tbody tr th");
+                    headerRows.forEach((row, index) => {
+                        if (index !== 0) {
+                            row.parentElement.remove();
+                        }
+                    });
+        
                     // Get all table rows within the table body
                     let tableRows = document.querySelectorAll("table tbody tr");
-            
+        
                     // Loop through each row and update the first cell (No.) with the correct row number
-                    tableRows.forEach((row, index) => {
+                    let rowIndex = 1;
+                    tableRows.forEach((row) => {
                         let firstCell = row.querySelector("td:first-child");
                         if (firstCell) {
-                            firstCell.textContent = index + 1;
+                            firstCell.textContent = rowIndex;
+                            rowIndex++;
                         }
                     });
                 });
-            </script>    
+            </script>      
 </body>
 </html>
 
