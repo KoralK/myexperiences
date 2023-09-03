@@ -214,7 +214,20 @@
                 <td>The hotel achieved a streamlined meeting reservation process, enhancing professionalism and organization during meetings.</td>
             </tr>
     
-    
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    // Get all table rows within the table body
+                    let tableRows = document.querySelectorAll("table tbody tr");
+            
+                    // Loop through each row and update the first cell (No.) with the correct row number
+                    tableRows.forEach((row, index) => {
+                        let firstCell = row.querySelector("td:first-child");
+                        if (firstCell) {
+                            firstCell.textContent = index + 1;
+                        }
+                    });
+                });
+            </script>    
 </body>
 </html>
 
