@@ -217,10 +217,10 @@
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     // Remove all header rows except the first one
-                    let headerRows = document.querySelectorAll("table tbody tr th");
+                    let headerRows = document.querySelectorAll("table tbody tr");
                     headerRows.forEach((row, index) => {
-                        if (index !== 0) {
-                            row.parentElement.remove();
+                        if (index !== 0 && row.querySelector("th")) {
+                            row.remove();
                         }
                     });
         
@@ -237,7 +237,7 @@
                         }
                     });
                 });
-            </script>      
+            </script>         
 </body>
 </html>
 
